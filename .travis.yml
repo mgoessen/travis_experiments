@@ -1,0 +1,22 @@
+dist: bionic
+language: generic
+
+env:
+  global:
+     - foo:bar
+     - foo2:bar bar
+     - foo3:"bar bar bar"
+     - foo4:
+       bar
+       bar
+       bar
+       bar
+
+script:
+ - echo Hello
+ - echo $foo
+ - echo $foo2
+ - echo $foo3
+ - echo $foo4
+
+ - exit 0
