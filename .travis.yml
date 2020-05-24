@@ -11,6 +11,10 @@ env:
        - bar
        - bar
        - bar
+     - foo5: >-
+       bar
+       bar
+    
 
 script:
  - echo Hello
@@ -18,5 +22,6 @@ script:
  - echo $foo2
  - echo $foo3
  - echo $foo4
+ - echo $foo5
 
  - exit 0
