@@ -21,4 +21,5 @@ script:
  - sudo mount
  - sudo df -h
  - sudo mount -o remount,noatime /
+ - sudo free -m
  - exit 0
