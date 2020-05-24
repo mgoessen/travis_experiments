@@ -3,7 +3,8 @@ language: minimal
 
 script:
   - sudo mount
-  - sudo mount -o remount,noatime,data=writeback /
+  - sudo mount -o noatime,data=writeback /dev/sda1 / 
+  - sudo mount -o remount,noatime,data=writeback /dev/sda1 / 
   - sudo mount -o remount,noatime /
   - sudo mount -o remount,data=writeback /
   - sudo dmesg
