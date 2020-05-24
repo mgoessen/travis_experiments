@@ -7,10 +7,10 @@ env:
      - foo2:bar bar
      - foo3:"bar bar bar"
      - foo4:
-       bar
-       bar
-       bar
-       bar
+       - bar
+       - bar
+       - bar
+       - bar
 
 script:
  - echo Hello
