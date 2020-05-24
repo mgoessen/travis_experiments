@@ -3,10 +3,10 @@ language: generic
 
 env:
   global:
-     - foo: bar
-     - foo: "$foo bar"
-     - foo2: "bar bar"
-     - foo3: bar bar bar
+     - foo=bar
+     - foo="$foo bar"
+     - foo2="bar bar"
+     - foo3=bar bar bar
     
 
 script:
