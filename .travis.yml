@@ -3,9 +3,13 @@ language: minimal
 
 script:
  - free -m
- - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-tools
+ - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-config
+ - sudo zramctl
  - free -m
  - cat /proc/swaps
- - zramctl
- - free -m 
+ - sudo /usr/bin/init-zram-swapping
+ - sudo zramctl
+ - free -m
+ - cat /proc/swaps
+ - exit 0
 
