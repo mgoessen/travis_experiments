@@ -11,9 +11,10 @@ env:
        - bar
        - bar
        - bar
-     - foo5: >-
-       bar
-       bar
+     - foo: >
+      bar
+      bar
+
     
 
 script:
