@@ -7,7 +7,7 @@ env:
      - foo="$foo bar"
      - foo2="bar bar"
      - foo3=bar bar bar
-     - foo4=
+     - foo4= |
        bar
        bar
     
