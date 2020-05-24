@@ -2,6 +2,7 @@ dist: bionic
 language: minimal
 
 script:
+ - sudo apt-get install -y 
  - uname -a
  - find /lib | grep zram
  - sudo modprobe zram
@@ -12,7 +13,7 @@ script:
  - sudo systemctl status zram-config.service
  - sudo /usr/bin/init-zram-swapping
  - sudo bash -x /usr/bin/init-zram-swapping
- - sudo journalctl -xe | cat
+# - sudo journalctl -xe | cat
  - zramctl
  - free -m 
  - cat /proc/swaps
