@@ -4,6 +4,7 @@ language: generic
 script:
  - uname -a
  - find /lib | grep zram
+ - sudo modprobe zram
  - free -m
  - sudo apt-get install zram-config
  - sudo service zram-config restart
