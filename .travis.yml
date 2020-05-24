@@ -2,6 +2,7 @@ dist: bionic
 language: minimal
 
 script:
+  - sudo mount
   - sudo mount -o remount,noatime,data=writeback /
   - sudo mount -o remount,noatime /
   - sudo mount -o remount,data=writeback /
