@@ -5,8 +5,10 @@ script:
  - free -m
  - sudo apt-get install zram-config
  - sudo service zram-config restart
- - systemctl status zram-config.service
- - journalctl -xe | cat
+ - sudo systemctl status zram-config.service
+ - sudo /usr/bin/init-zram-swapping
+ - sudo bash -x /usr/bin/init-zram-swapping
+ - sudo journalctl -xe | cat
  - zramctl
  - free -m 
  - cat /proc/swaps
