@@ -4,5 +4,7 @@ language: generic
 script:
  - free -m
  - sudo apt-get install zram-config
+ - sudo service zram-config start
+ - zramctl
  - free -m 
  - cat /proc/swaps
