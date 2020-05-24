@@ -4,14 +4,11 @@ language: minimal
 script:
  - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-config
  - sudo bash -x /usr/bin/init-zram-swapping
- - echo Y | sudo tee /sys/module/zswap/parameters/enabled;
- - sudo fallocate -l 8G /swap; sudo mkswap /swap;
+
  - sudo swapon $(sudo losetup --direct-io -f /swap --show)
  - sudo mount -o remount,noatime /
  - sudo free -m
  - sudo swapon
  - sudo zramctl
+ - sudo sysctl -a | grep vm
 
-# TODO: remove losetup
-# TODO: zbif3
-# TODO: zramctl 3Gx2
