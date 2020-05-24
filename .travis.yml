@@ -2,7 +2,7 @@ dist: bionic
 language: minimal
 
 script:
- - sudo apt-get install -y linux-image-5.3.0-1020-gcp
+ - sudo apt-get install -y linux-modules-extra-5.3.0-1020-gcp
  - uname -a
  - find /lib | grep zram
  - sudo modprobe zram
