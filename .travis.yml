@@ -3,8 +3,10 @@ language: generic
 
 env:
   global:
-     foo:bar
-     foo:"$foo bar"
+     - foo: bar
+     - foo: "$foo bar"
+     - foo2: "bar bar"
+     - foo3: bar bar bar
     
 
 script:
@@ -12,7 +14,5 @@ script:
  - echo $foo
  - echo $foo2
  - echo $foo3
- - echo $foo4
- - echo $foo5
 
  - exit 0
