@@ -4,12 +4,14 @@ language: minimal
 script:
  - free -m
  - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-config
- - sudo zramctl
- - free -m
- - cat /proc/swaps
  - sudo /usr/bin/init-zram-swapping
- - sudo zramctl
+ - echo Y | sudo tee /sys/module/zswap/parameters/enabled;
+# - echo lzo | /sys/module/zswap/parameters/compressor
+# - echo z3fold | /sys/module/zswap/parameters/zpool
+ - sudo fallocate -l 4G /swap; sudo mkswap /swap; sudo swapon /swap;
  - free -m
- - cat /proc/swaps
- - exit 0
+ - cat /proc/swap
+ - sudo swapon
+ - zramctl
+ - grep -R . /sys/module/zswap/parameters/
 
