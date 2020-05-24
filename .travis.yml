@@ -1,10 +1,11 @@
 dist: bionic
-language: generic
+language: minimal
 
 script:
  - uname -a
  - find /lib | grep zram
  - sudo modprobe zram
+ - sudo insmod /lib/mobules/$(uname -r)/kernel/drivers/block/zram/zram.ko
  - free -m
  - sudo apt-get install zram-config
  - sudo service zram-config restart
