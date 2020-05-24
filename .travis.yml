@@ -2,9 +2,12 @@ dist: bionic
 language: minimal
 
 script:
-  - sudo mount
-  - sudo mount -o noatime,data=writeback /dev/sda1 / 
-  - sudo mount -o remount,noatime,data=writeback /dev/sda1 / 
-  - sudo mount -o remount,noatime /
-  - sudo mount -o remount,data=writeback /
-  - sudo dmesg
+ - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-config
+ - sudo /usr/bin/init-zram-swapping
+ - echo Y | sudo tee /sys/module/zswap/parameters/enabled;
+ - sudo fallocate -l 8G /swap; sudo mkswap /swap;
+ - sudo swapon $(sudo losetup --direct-io -f /swap --show)
+ - sudo mount -o remount,noatime /
+ - sudo free -m
+ - sudo swapon
+ - sudo zramctl
