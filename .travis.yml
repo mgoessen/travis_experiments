@@ -18,5 +18,7 @@ script:
  - echo $foo2
  - echo $foo3
  - echo $foo4
-
+ - sudo mount
+ - sudo df -h
+ - sudo mount -o remount,noatime /
  - exit 0
