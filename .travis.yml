@@ -3,10 +3,8 @@ language: generic
 
 env:
   global:
-     foo: >
-      bar
-      bar
-
+     foo:bar
+     foo:"$foo bar"
     
 
 script:
