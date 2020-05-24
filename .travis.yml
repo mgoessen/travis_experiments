@@ -2,16 +2,6 @@ dist: bionic
 language: minimal
 
 script:
- - free -m
- - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-config
- - sudo /usr/bin/init-zram-swapping
- - echo Y | sudo tee /sys/module/zswap/parameters/enabled;
-# - echo lzo | /sys/module/zswap/parameters/compressor
-# - echo z3fold | /sys/module/zswap/parameters/zpool
- - sudo fallocate -l 4G /swap; sudo mkswap /swap; sudo swapon /swap;
- - free -m
- - cat /proc/swap
- - sudo swapon
- - zramctl
- - grep -R . /sys/module/zswap/parameters/
-
+  - sudo mount -o remount,noatime,data=writeback /
+  - sudo mount -o remount,noatime /
+  - sudo mount -o remount,data=writeback /
