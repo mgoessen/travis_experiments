@@ -1,25 +1,8 @@
 dist: bionic
 language: generic
 
-env:
-  global:
-     - foo=bar
-     - foo="$foo bar"
-     - foo2="bar bar"
-     - foo3=bar bar bar
-     - foo4= |
-       bar
-       bar
-    
-
 script:
- - echo Hello
- - echo $foo
- - echo $foo2
- - echo $foo3
- - echo $foo4
- - sudo mount
- - sudo df -h
- - sudo mount -o remount,noatime /
- - sudo free -m
- - exit 0
+ - free -m
+ - sudo apt-get install zram-config
+ - free -m 
+ - cat /proc/swaps
