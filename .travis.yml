@@ -3,4 +3,5 @@ language: minimal
 
 script:
  - cat /proc/cpuinfo
+ - cat /sys/block/sda/queue/scheduler
 
