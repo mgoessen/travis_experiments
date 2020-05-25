@@ -2,6 +2,9 @@ dist: bionic
 language: minimal
 
 script:
- - cat /proc/cpuinfo
- - cat /sys/block/sda/queue/scheduler
+ - date
+ - while sleep 1m; do echo wait; done &
+     timeout 300 sleep 600;
+   kill %1
+ - date
 
