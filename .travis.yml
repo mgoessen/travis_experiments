@@ -2,13 +2,5 @@ dist: bionic
 language: minimal
 
 script:
- - sudo apt-get install -y linux-modules-extra-$(uname -r) zram-config
- - sudo bash -x /usr/bin/init-zram-swapping
-
- - sudo swapon $(sudo losetup --direct-io -f /swap --show)
- - sudo mount -o remount,noatime /
  - sudo free -m
- - sudo swapon
- - sudo zramctl
- - sudo sysctl -a | grep vm
-
+ - sudo ps aux
