@@ -1,10 +1,15 @@
 dist: bionic
 language: minimal
 
-script:
- - date
- - while sleep 1m; do echo wait; done &
-     timeout 300 sleep 600;
-   kill %1
- - date
+jobs:
+  include:
+    - stage: j1
+      name: "j1"
+      script: echo c
 
+    - stage: j1
+      name: "j1"
+
+script:
+ - echo a
+ - echo b
