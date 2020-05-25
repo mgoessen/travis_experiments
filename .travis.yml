@@ -2,8 +2,5 @@ dist: bionic
 language: minimal
 
 script:
- - sudo free -m
- - sudo ps aux
- - sudo apt-get install psmisc
- - sudo pstree
+ - cat /proc/cpuinfo
 
