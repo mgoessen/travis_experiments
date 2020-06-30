@@ -1,13 +1,9 @@
 dist: bionic
 language: minimal
 
+jobs:
+  include:
+    - stage: stage1
+    - stage: stage2
 script:
- - set
- - grep -R . /etc/apt/
- - curl --connect-timeout 1 -fsSL "${TRAVIS_APT_PROXY}/__squignix_health__"
- - sudo apt-get install curl
- - curl --connect-timeout 1 -fsSL "${TRAVIS_APT_PROXY}/__squignix_health__"
- - sudo apt-get install vmdebootstrap
- - sudo vmdebootstrap --arch amd64 --distribution buster --image 1.qcow2 --convert-qcow2 --enable-dhcp --grub --hostname vagrant-buster --log-level debug --owner travis --kernel-package linux-image-amd64 --root-password=vagrant --size 20G --sudo --user vagrant/vagrant--verbose
- - http_proxy=http://build-cache.travisci.net  sudo vmdebootstrap --arch amd64 --distribution buster --image 2.qcow2 --convert-qcow2 --enable-dhcp --grub --hostname vagrant-buster --log-level debug --owner travis --kernel-package linux-image-amd64 --root-password=vagrant --size 20G --sudo --user vagrant/vagrant--verbose
-
+- set
