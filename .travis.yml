@@ -1,15 +1,7 @@
 dist: bionic
 language: minimal
 
-jobs:
-  include:
-    - stage: stage1
-      before-script:
-      - export timeout=50
-      script:
-      - echo $timeout
-    - stage: stage2
-      script:
-      - echo a
 script:
-- echo b
+ - while sleep 30; do echo "Staying aliiiveeeee"; done &
+    timeout 300 sudo su "$(whoami)" -c "rake build";
+   kill %1
