@@ -4,8 +4,10 @@ language: minimal
 jobs:
   include:
     - stage: stage1
+      before-script:
+      - export timeout=50
       script:
-      - echo a
+      - echo $timeout
     - stage: stage2
       script:
       - echo a
