@@ -4,6 +4,11 @@ language: minimal
 jobs:
   include:
     - stage: stage1
+    - script:
+      - echo a
     - stage: stage2
+    - script:
+      - echo a
 script:
+- echo b
 - set
