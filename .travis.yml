@@ -11,4 +11,3 @@ jobs:
       - echo a
 script:
 - echo b
-- set
